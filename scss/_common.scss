@@ -1,0 +1,646 @@
+
+// 変数の設定
+$blue:#367ABD;
+$red:#EE4035;
+$yellow:#F9ED3A;
+$or-ye: #FF9300;
+$text-color: #111111 !default;
+$link-color: #2962ff !default;
+$link-hover-color: darken($link-color, 5%) !default;
+// 彩度を上げる color: saturate($base-color, 15%);
+// 彩度を下げる color: desaturate($base-color, 15%);
+// 輝度を上げる color: lighten($base-color, 15%);
+// 輝度を下げる color: darken($base-color, 15%);
+// rgbaで透明度を変える color: rgba($base-color, 0.8);
+// 色の反転 color: invert($base-color);
+// グレースケール color: grayscale($base-color);
+
+@mixin base_width{
+  margin: 0 auto;
+  width: 1280px;
+}
+// @extendでスタイルの継承
+// @mixinでステイルの定義
+// @includeでmixinの呼び出し
+$yu-min: "游明朝", YuMincho;
+$ten-min: ten-mincho-text, serif;
+$noto: 'Noto Sans JP', sans-serif;
+$yu-go: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+$jose: josefin-sans, sans-serif;
+$tsuku: fot-tsukubrdgothic-std, sans-serif;
+// 彩度を上げる color: saturate($base-color, 15%);
+// 彩度を下げる color: desaturate($base-color, 15%);
+// 輝度を上げる color: lighten($base-color, 15%);
+// 輝度を下げる color: darken($base-color, 15%);
+// rgbaで透明度を変える color: rgba($base-color, 0.8);
+// 色の反転 color: invert($base-color);
+// グレースケール color: grayscale($base-color);
+
+$breakpoints: (
+  "sp": "screen and (max-width: 420px)",
+  "sm": "screen and (max-width: 768px)",
+  "md": "screen and (max-width: 1099px)",
+  "lg": "screen and (max-width: 1299px)",
+) !default;
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints , $breakpoint)} {
+    @content;
+  }
+}
+
+// @include mq(sm)
+//   margin-top: 60px;
+// }
+
+// @mixin base_width{
+//   margin: 0 auto;
+//   width: 1280px;
+// }
+// @extendでスタイルの継承
+// @mixinでステイルの定義
+// @includeでmixinの呼び出し
+@mixin img100{
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+
+*{
+  box-sizing: border-box;
+  // outline: 2px solid blue;
+}
+html { 
+  font-size: 62.5%; 
+}
+.ie_ObjectFit {
+object-fit: cover;
+font-family: 'object-fit: cover;'
+}
+/* レイアウトCSS */
+body{
+  min-height:1200px;
+  // font-family:"游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,sans-serif;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    a{
+      color: #000;
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+    a:link {
+      // color:#078D00;
+      text-decoration:none;
+    }
+    a:visited {
+      // color:#189B12;
+      text-decoration:none;
+    }
+    a:hover {
+      opacity: 0.7;
+    }
+    a:active {
+      color:#666;
+    }
+    img{
+      border:0;
+      vertical-align: bottom;
+      width: 100%;
+      height: auto;
+    }
+    .wrapper{
+      width: 1000px;
+      margin: 0 auto;
+      @media screen and (max-width: 1050px){
+        width: 95%;
+      }
+    }
+    .out-wrapper{
+      width: 1200px;
+    }
+    .pc{
+      display: block;
+      }
+    .sp{
+      display: none;
+    }
+    color: #333;
+    p{
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      -ms-text-justify: inter-ideograph;
+      @include mq(sm){
+        letter-spacing: 0.01em;
+        font-size: 1.8rem;
+      }
+    }
+    h2.subheading{
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      line-height: 1.7;
+      position: relative;
+      background: #fff;
+      @include mq(sm){
+        font-size: 3rem;
+      }
+      @media screen and (max-width: 350px) {
+        font-size: 2.4rem;
+        
+      }
+    }
+    h2.subheading::before{
+      content: '概要・理念';
+      position: absolute;
+      font-size: 2.2rem;
+      color: $or-ye;
+      top: -3rem;
+      font-weight: 400;
+      @include mq(sm){
+        font-size: 1.6rem;
+      }
+    }
+    h3{
+      font-size: 3.2rem;
+    }
+    .bg-doddo{
+      background: url(images/bg/bg-dodd.png);
+      background-position: 0 -5px;
+      background-size: 45px;
+    }
+    
+}
+header{
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  padding-bottom: 1.5rem;
+  .head-container{
+    display: flex;
+    justify-content: space-between;
+    h1{
+      flex-basis: 16%;
+      margin-top: 20px;
+      padding-left: 40px;
+      img{
+        min-width: 180px;
+      }
+      @include mq(sm){
+        flex-basis: 44%;
+        margin-top: 1rem;
+        padding-left: 2rem;
+        img{
+          min-width: 150px;
+        }      
+      }
+    }
+    .box-r{
+      flex-basis: 55%;
+    }
+    .btn-top{
+      display: flex;
+      justify-content: flex-end;
+      .h-btn{
+        margin-right: 8px;
+        a{
+          background-color: #03AC2A;
+          font-size: 1.6rem;
+          color: #fff;
+          padding: 20px 20px 15px;
+          border-radius: 0 0 20px 20px;
+          span{
+            font-size: 1.9rem;
+            vertical-align: middle;
+            margin-right: 5px;
+          }
+        }
+      }
+      .item02,.item03{
+        a{
+          font-size: 1.3rem;
+        }
+      }
+      .item02{
+        a{
+          background-color: #FF9300;
+        }
+      }
+      .item03{
+        margin-right: 0;
+        a{
+          background-color: #00B9D1;
+        }
+      }
+    }
+    .pc-navi ul{
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      li{
+        flex-basis: 25%;
+        a{
+          font-size: 1.6rem;
+          text-align: center;
+        }
+        position: relative;
+      }
+      li::before{
+        content: '';
+        position: absolute;
+        height: 25px;
+        width: 1px;
+        background-color: #333;
+        left: 0;
+        top: -0.3rem;
+      }
+      li:first-child::before{
+        content: none;
+      }
+    }
+  }
+}
+.kv-pc{
+  // padding-top: 30px;
+  position: relative;
+  margin-top: 120px;
+  .kv-img{
+    width: 100%;
+    img{
+      min-height: 710px;
+      object-fit: cover;
+    }
+  }
+  .cp{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: $tsuku;
+    font-weight: 700;
+    // font-size: 3rem;
+    font-size: 2vw;
+    color: #484848;
+    line-height: 1.66;
+    letter-spacing: 0.1em;
+    span{
+      font-size: 1.8vw;
+      // font-size: 2.8rem;
+    }
+  }
+}
+.subhead02{
+  border: 2px solid $or-ye;
+  border-radius: 30px;
+  display: inline-block;
+  font-size: 2.4rem;
+  font-weight: 700;
+  padding: 17px 90px;
+  background: #fff;
+}
+.btn-00{
+  width: 45%;
+  margin: 6rem 0 0 auto;
+  a{
+    font-size: 2.1rem;
+    padding: 3rem 0;
+    text-align: center;
+    background: #fff;
+    border: 2px solid $or-ye;
+    border-radius: 4rem;
+    position: relative;
+  }
+  a::after{
+    content: '';
+    background: url(images/allow-r.png) no-repeat;
+    width: 7.7rem;
+    height: 1rem;
+    display: inline-block;
+    position: absolute;
+    background-size: contain;
+    vertical-align: middle;
+    top: 47%;
+    right: -9%;
+    transform: translateY(-50%);
+  }
+  @include mq(sm){
+    width: 80%;
+    margin: 3rem auto 0;
+    a{
+      font-size: 1.8rem;
+      padding: 2rem 0;
+    }
+  }
+  @include mq(sp){
+    a{
+      font-size: 1.6rem;
+    }
+    a::after{
+      width: 5rem;
+    }
+  }
+}
+.sub02-ttl{
+  font-size: 3.2rem;
+  letter-spacing: 0.1em;
+  @include mq(sm){
+    font-size: 2.8rem;
+    text-indent: -1em;
+    padding-left: 1em;
+    line-height: 1.4;
+  }
+}
+.sub02-ttl::before{
+  content: '';
+  width: 1.4rem;
+  height: 3.7rem;
+  background: $or-ye;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.bg-yellow{
+  background: #FFFCEB;
+}
+footer{
+  .foot-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5rem;
+    .box-l{
+      flex-basis: 50%;
+      h2.img-logo{
+        width: 45%;
+      }
+      dl{
+        dt{
+          font-weight: 700;
+          font-size: 1.6rem;
+          margin-top: 2.2rem;
+          letter-spacing: 0.05em;
+        }
+        dd{
+          font-size: 1.6rem;
+          margin-top: 1.1rem;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+    .box-r{
+      flex-basis: 50%;
+      .footnav{
+        display: flex;
+        justify-content: space-between;
+        li{
+          a{
+            font-size: 1.6rem;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
+    }
+  }
+  .c-right{
+    font-size: 1.2rem;
+    text-align: center;
+    padding-bottom: 9rem;
+  }
+}
+
+@include mq(sm){
+  .pc{
+    display: none !important;
+  }
+  .sp{
+    display: block !important;
+  }
+  
+  header .head-container .cta-under{
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    .btn-top{
+      .h-btn{
+        flex-basis: calc(100% / 3);
+        margin-right: 0;
+        a{
+          border-radius: 0;
+          text-align: center;
+          padding: 20px 0 17px;
+        }
+      }
+      .item01{
+        a{
+          font-size: 1.4rem;
+        }
+      }
+      @include mq(sp){
+        .h-btn a{
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  .kv-pc .kv-img img {
+    min-height: 0;
+  }
+  .kv-sp{
+    // padding-top: 1rem;
+    margin-top: 0;
+    height: 98vh;
+    .kv-img{
+      height: 90vh;
+      margin-top: 7rem;
+      position: absolute;
+      img{
+        height: 100%;
+        object-fit: cover;
+        object-position: top -6rem left 0;
+      }
+    }
+    h2.cp{
+      font-size: 5vw;
+      top: 70%;
+      // position: relative;
+      span{
+        font-size: 3.7vw;
+      }
+      @include mq(sp) {
+        width: 80%;
+      }
+    }
+    h2.cp::before{
+      content: '';
+      width: 200%;
+      height: 327px;
+      background-color: #fff;
+      position: absolute;
+      top: -27%;
+      left: -50%;
+      display: inline-block;
+      -webkit-filter: blur(50px);
+      border-radius: 50%;
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+  }
+  header .kv-pc .kv-img img{
+      min-height: 0;
+    }
+    /*******************************
+      はんばーがーめにゅー
+  *********************************/
+  .burger-btn {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 3;
+    border: none;
+    // background-color: rgb(0, 0, 0);
+    margin: 1rem 2rem 0 auto;
+  }
+  .bar {
+    width: 40px;
+    height: 3px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $or-ye;
+  }
+  .bar_top {
+    top: 9px;
+  }
+  .bar_mid {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .bar_bottom {
+    bottom: 9px;
+  }
+  .burger-btn.close .bar_top {
+    transform: translate(-50%, 10px) rotate(45deg);
+    transition: transform 0.3s;
+  }
+  .burger-btn.close .bar_mid {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .burger-btn.close .bar_bottom {
+    transform: translate(-50%, -8px) rotate(-45deg);
+    transition: transform 0.3s;
+  }
+  .sp-nav{
+    display: none;
+    width: 60%;
+    height: 90vh;
+    transform: translateX(100%);      
+    transition: .3s;      
+    position: fixed;
+    right: 0;
+    z-index: 88;
+    background: #fff;
+    ul{
+      flex-direction: column;
+      padding: 3rem 0;
+      // background: $or-ye;
+      li{
+        // margin-top: 5rem;
+        a{
+          font-size: 1.8rem;
+          padding: 3rem 2rem;
+          border-bottom: 1px dotted $or-ye;
+        }
+        
+      }
+      li:first-child a{
+        // border-top: 1px solid $or-ye;
+        // content: "●";
+        // color: $or-ye;
+        // margin-right: 5px;
+      }
+      li:nth-child(2n) a{
+        background: #FFFCEB;
+        
+      }
+    }     
+  }
+  .sp-nav.slide-in{      
+    transform: translateX(0);      
+    transition: .3s;
+    
+  }
+  body.noscroll{
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 420px){
+  header{
+    // height: 100vh;
+    padding-bottom: 1rem;
+  }
+  .btn-long{
+    width: 90%;
+    a::after{
+      width: 6rem;
+      right: -7%;
+    }
+  }
+  footer{
+    .foot-container{
+      padding-bottom: 6rem;
+      .box-l{
+        flex-basis: 100%;
+        width: 100%;
+        text-align: center;
+        h2.img-logo{
+          margin: 2rem auto 0;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+.sp-nav{
+  display: none;
+}
+@include mq(sm){
+  header .head-container h1{
+    flex-basis: 28%;
+    padding-left: 1rem;
+    img{
+      height: 50px;
+      object-fit: contain;
+    }
+  }
+}
+@include mq(sp){
+  .kv-pc{
+    margin-top: 60px;
+  }
+  .kv-sp{
+    height: 90vh;
+    .kv-img{
+      margin-top: 0;
+        img{
+          object-position: 50% 50%;
+        }
+    }
+    h2.cp{
+      top: 75%;
+    }
+    h2.cp::before{
+      content: none;
+    }
+  }
+}

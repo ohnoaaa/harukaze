@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/*----------------------------------
+*
+*               共通
+*
+----------------------------------*/
+/*----------------------------------
+*       下層ページタイトルlowerpagettl
+----------------------------------*/
+.lowerpagettl {
+  position: relative;
+  margin-top: 3rem;
+  height: 400px;
+}
+
+.lowerpagettl .box {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.lowerpagettl .box img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.lowerpagettl .box01 {
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  width: 45%;
+  padding: 5.8rem 0 0.5rem 13.5%;
+  border-radius: 0 15px 0 0;
+}
+
+.lowerpagettl .box01 h2.subheading::before {
+  content: 'FAQ';
+}
+
+/*----------------------------------
+*          bg-doddo
+----------------------------------*/
+.lower-bg {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*----------------------------------
+*          パンクズbreadcrumb
+----------------------------------*/
+.breadcrumb ul {
+  display: flex;
+  column-gap: 1.5rem;
+  margin-top: 7.5rem;
+}
+
+.breadcrumb ul li {
+  font-size: 1.6rem;
+}
+
+.breadcrumb ul li a {
+  font-weight: normal;
+  font-size: 1.6rem;
+}
+
+.breadcrumb ul li a::after {
+  content: '＞';
+  margin-left: 1.8rem;
+}
+
+/*----------------------------------
+*
+*           よくあるご質問FAQ
+*
+----------------------------------*/
+.faq01 .faq-container {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  width: 82%;
+  margin: 7rem auto 0;
+}
