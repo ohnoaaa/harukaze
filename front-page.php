@@ -15,6 +15,10 @@
     <h2>新しいニュースをいれるよ</h2>
     <p>２０２２１０１４</p>
   </div>
+  <div class="news-top">
+    <h2>新しいまた別のにゅ０すをいれるよをいれるよ</h2>
+    <p>２０２２１０１7</p>
+  </div>
 </section>
   <section class="top01">
     <div class="img-sp-kv sp"><img src="<?php echo get_template_directory_uri(); ?>/images/bg/bg-yellow.png" alt=""></div>
