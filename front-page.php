@@ -10,6 +10,12 @@
   <h2 class="cp">障がい者<span>のみなさまの</span><br>
     生活をサポート<span>する</span><br class="sp">グループホーム<span>です。</span></h2>
 </div>
+<section>
+  <div class="news-top">
+    <h2>新しいニュースをいれるよ</h2>
+    <p>２０２２１０１４</p>
+  </div>
+</section>
   <section class="top01">
     <div class="img-sp-kv sp"><img src="<?php echo get_template_directory_uri(); ?>/images/bg/bg-yellow.png" alt=""></div>
     <div class="bg-doddo">
